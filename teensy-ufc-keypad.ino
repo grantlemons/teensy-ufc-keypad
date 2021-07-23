@@ -1,9 +1,8 @@
 #include <Keypad.h>
-#include "secret.h"
 
 #define ENABLE_PULLUPS
 #define NUMBUTTONS 17
-#define NUMROWS 6
+#define NUMROWS 5
 #define NUMCOLS 4
 #define DEPRESS_DELAY 5
 
@@ -12,11 +11,10 @@ byte buttons[NUMROWS][NUMCOLS] = {
     {1,2,3,15},
     {4,5,6,16},
     {7,8,9,17},
-    {10,11,12,18},
-    {32, 0, 0, 0}
+    {10,11,12,18}
 };
 
-byte rowPins[NUMROWS] = {A5, A6, A7, A8, A9, A11}; 
+byte rowPins[NUMROWS] = {A5, A6, A7, A8, A9}; 
 byte colPins[NUMCOLS] = {A0, A1, A2, A3};
 
 Keypad box = Keypad( makeKeymap(buttons), rowPins, colPins, NUMROWS, NUMCOLS);
@@ -39,26 +37,18 @@ void CheckAllButtons(void) {
                         switch (box.key[i].kchar) {
                             case 14:
                                 Joystick.button(box.key[i].kchar, 1);
-                                delay(DEPRESS_DELAY);
                                 break;
                             case 15:
                                 Joystick.button(box.key[i].kchar, 1);
-                                delay(DEPRESS_DELAY);
                                 break;
                             case 16:
                                 Joystick.button(box.key[i].kchar, 1);
-                                delay(DEPRESS_DELAY);
                                 break;
                             case 17:
                                 Joystick.button(box.key[i].kchar, 1);
-                                delay(DEPRESS_DELAY);
                                 break;
                             case 18:
                                 Joystick.button(box.key[i].kchar, 1);
-                                delay(DEPRESS_DELAY);
-                                break;
-                            case 32:
-                                Keyboard.println(password);
                                 break;
                             default:
                                 Joystick.button(box.key[i].kchar, 1);
