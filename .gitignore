@@ -33,3 +33,4 @@
 
 # Secret files
 secret.h
+passwd*
